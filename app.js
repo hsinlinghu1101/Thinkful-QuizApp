@@ -90,6 +90,7 @@ function generateCurrentQuestion() {
     </ul>
     <button type='submit' id='check-answer'>Check Answer</button>
     <button type="submit" class='restart-button'>Restart</button> 
+    <p class="tellscore">Current Score: <span class='current-correct'>${store.score}</span> of ${store.questionNumber}</p>
     </form>
   `;
 }
