@@ -199,9 +199,5 @@ $(main);
 
 /*
 CHECKLIST:
-
--Prevent checking answer if no choice is made
--CSS Question misbehaving
--Use responsive design
--Change img sources to within quiz-app folder
+-Use mobile responsive design
  */
