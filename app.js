@@ -14,7 +14,7 @@ const store = {
         'ThinkfulFn();',
         'function ThinfulFn();'
       ],
-      correctAnswer: 'ThinkfulFn();'
+      correctAnswer: 3
     },
     {
       question: 'How to write (If “i” is NOT equal to 8) code?',
@@ -24,7 +24,7 @@ const store = {
         'if(i!=8)',
         'if i!=8'
       ],
-      correctAnswer: 'if(i!=8)'
+      correctAnswer: 3
     },
     {
       question: 'What does CSS stand for?',
@@ -34,7 +34,7 @@ const store = {
         'Computer System Sheets',
         'Cooperation Style System'
       ],
-      correctAnswer: 'Cascading Style Sheets'
+      correctAnswer: 2
     },
     {
       question: 'Which function of an Array object calls a function for each element in the array?',
@@ -44,7 +44,7 @@ const store = {
         'forEveryItem()',
         'if()'
       ],
-      correctAnswer: 'map()'
+      correctAnswer: 1
     },
     {
       question: 'Choose the correct HTML element for the largest heading:',
@@ -54,7 +54,7 @@ const store = {
         'h1',
         'ul'
       ],
-      correctAnswer: 'h1'
+      correctAnswer: 3
     }
   ],
   quizStart:false,
@@ -83,12 +83,12 @@ function generateCurrentQuestion() {
     <p class="quesline">Question <span class='question-number'>${store.questionNumber}</span> of 5</p>
     <p class='current-question-text'>${store.questions[store.questionNumber-1].question}</p>
     <ul style='list-style-type: none;'>
-      <li><label for ='a' class='choice-a'>A.<input type='radio' name='choice' value=${store.questions[store.questionNumber-1].answers[0]} id = 'a' tabindex='0' required>${store.questions[store.questionNumber-1].answers[0]}</label></li>
-      <li><label for ='b' class='choice-b'>B.<input type='radio' name='choice' value=${store.questions[store.questionNumber-1].answers[1]} id = 'b'>${store.questions[store.questionNumber-1].answers[1]}</label></li>
-      <li><label for ='c' class='choice-c'>C.<input type='radio' name='choice' value=${store.questions[store.questionNumber-1].answers[2]} id = 'c'>${store.questions[store.questionNumber-1].answers[2]}</label></li>
-      <li><label for ='d' class='choice-d'>D.<input type='radio' name='choice' value=${store.questions[store.questionNumber-1].answers[3]} id = 'd'>${store.questions[store.questionNumber-1].answers[3]}</label></li>
+      <li><label for ='a' class='choice-a'>A.<input type='radio' name='choice' value= 1 id = 'a' tabindex='0' required>${store.questions[store.questionNumber-1].answers[0]}</label></li>
+      <li><label for ='b' class='choice-b'>B.<input type='radio' name='choice' value= 2 id = 'b'>${store.questions[store.questionNumber-1].answers[1]}</label></li>
+      <li><label for ='c' class='choice-c'>C.<input type='radio' name='choice' value= 3 id = 'c'>${store.questions[store.questionNumber-1].answers[2]}</label></li>
+      <li><label for ='d' class='choice-d'>D.<input type='radio' name='choice' value= 4 id = 'd'>${store.questions[store.questionNumber-1].answers[3]}</label></li>
     </ul>
-    <button type='button' id='check-answer'>Check Answer</button>
+    <button type='submit' id='check-answer'>Check Answer</button>
     <button type="submit" class='restart-button'>Restart</button> 
     </form>
   `;
@@ -98,7 +98,7 @@ function generateCorrectPage() {
   return `
   <form class='correct-answer-form'>
   <h2>Correct Answer!</h2>
-  <p>Correct Answer: ${store.questions[store.questionNumber-1].correctAnswer}</p>
+  <p>Correct Answer: ${store.questions[store.questionNumber-1].answers[store.questions[store.questionNumber-1].correctAnswer - 1]}</p>
   <button type='button' class='next-question'>Next Question</button>
   <p class="tellscore">Current Score: <span class='current-correct'>${store.score}</span> of ${store.questionNumber}</p>
   </form>
@@ -109,7 +109,7 @@ function generateWrongPage() {
   return `
   <form class='wrong-answer-form'>
   <h2>Wrong Answer!</h2>
-  <p>Correct Answer: ${store.questions[store.questionNumber-1].correctAnswer}</p>
+  <p>Correct Answer: ${store.questions[store.questionNumber-1].answers[store.questions[store.questionNumber-1].correctAnswer - 1]}</p>
   <button type='button' class='next-question'>Next Question</button>
   <p class="tellscore">Current Score: <span class='current-correct'>${store.score}</span> of ${store.questionNumber}</p>
   </form>
@@ -160,14 +160,9 @@ function handleStartQuiz() {
 }
 
 function handleCheckAnswer(){
-  $('#check-answer').on('click', function(e){
+  $('.current-question-choices').on('submit', function(e){
     e.preventDefault();
-    console.log('hello'); //Delete when done
-    let selectAnswer = $('input[type = "radio"]:checked').attr('value');
-    console.log(selectAnswer);
-    console.log(typeof selectAnswer);
-    console.log(store.questions[store.questionNumber-1].correctAnswer);
-    console.log(typeof store.questions[store.questionNumber-1].correctAnswer);
+    let selectAnswer = parseInt($('input[type = "radio"]:checked').attr('value'));
     if (selectAnswer === store.questions[store.questionNumber-1].correctAnswer){
       store.score ++;
       store.answerCheck = true;
@@ -190,6 +185,7 @@ function handleRestartQuiz() {
   // Users should be able to start a new quiz
    $('.restart-button').on('click', function() {
     store.questionNumber = 0;
+    store.score = 0;
     render();
    });
 }
@@ -205,5 +201,7 @@ $(main);
 CHECKLIST:
 
 -Prevent checking answer if no choice is made
+-CSS Question misbehaving
 -Use responsive design
+-Change img sources to within quiz-app folder
  */
