@@ -98,7 +98,7 @@ function generateCorrectPage() {
   return `
   <form class='correct-answer-form'>
   <h2>Correct Answer!</h2>
-  <p>Correct Answer: ${store.questions[store.questionNumber-1].answers[store.questions[store.questionNumber-1].correctAnswer - 1]}</p>
+  <p class="correct">Correct Answer: ${store.questions[store.questionNumber-1].answers[store.questions[store.questionNumber-1].correctAnswer - 1]}</p>
   <button type='button' class='next-question'>Next Question</button>
   <p class="tellscore">Current Score: <span class='current-correct'>${store.score}</span> of ${store.questionNumber}</p>
   </form>
@@ -109,7 +109,7 @@ function generateWrongPage() {
   return `
   <form class='wrong-answer-form'>
   <h2>Wrong Answer!</h2>
-  <p>Correct Answer: ${store.questions[store.questionNumber-1].answers[store.questions[store.questionNumber-1].correctAnswer - 1]}</p>
+  <p class="correct">Correct Answer: ${store.questions[store.questionNumber-1].answers[store.questions[store.questionNumber-1].correctAnswer - 1]}</p>
   <button type='button' class='next-question'>Next Question</button>
   <p class="tellscore">Current Score: <span class='current-correct'>${store.score}</span> of ${store.questionNumber}</p>
   </form>
