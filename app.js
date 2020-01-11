@@ -68,8 +68,8 @@ const store = {
 function generateStartPage() {
   return `
   <form class="startPage">
-  <img src="https://img.icons8.com/color/48/000000/light.png"><p class="light">The quiz contains 5 questions and  no time limit. </p></br>
-  <img src="https://img.icons8.com/color/48/000000/light.png"><p class="light">Let's see how much you know, or don't know, about Javascript, CSS and HTML.</p></br>
+  <img src="images\\light.png"><p class="light">The quiz contains 5 questions and  no time limit. </p></br>
+  <img src="images\\light.png"><p class="light">Let's see how much you know, or don't know, about Javascript, CSS and HTML.</p></br>
   <p id="start">Good Luck !</p>
   <button type='submit' class='start-button'>Start Quiz</button> 
   
@@ -120,7 +120,7 @@ function generateQuizComplete() {
   return `
   <form class = "result">
   <label for="check result">Completed the Quiz</label>
-  <p id="start">High Five!<img src="https://img.icons8.com/cute-clipart/64/000000/high-five.png"></p>
+  <p id="start">High Five!<img src="images\\high-five.png"></p>
   <p class="quesline">You got <span class ="current-correct">${store.score}</span> out of 5!</p>
   <button type="submit" class='restart-button'>Restart</button>
 </form>`;
