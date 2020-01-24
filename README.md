@@ -1,7 +1,8 @@
 # hsin_gage_quiz-app
 Quiz Application
 
-Users srory
+Users story
+
 The starting screen have a button that users can click to start the quiz.
 
 Users should be prompted through a series of at least 5 multiple choice questions that they can answer.
