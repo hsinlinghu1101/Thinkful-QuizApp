@@ -1,6 +1,8 @@
 # hsin_gage_quiz-app
 Quiz Application
 
+live page: https://hsinlinghu1101.github.io/Thinkful-QuizApp/
+
 Users story
 
 The starting screen have a button that users can click to start the quiz.
