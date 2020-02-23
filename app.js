@@ -9,10 +9,10 @@ const store = {
     {
       question: 'How is a function invoked in JavaScript?',
       answers: [
-        'call ThinkfulFn();',
-        'call function ThinkfulFn();',
-        'ThinkfulFn();',
-        'function ThinfulFn();'
+        'call thinkfulFn();',
+        'call function thinkfulFn();',
+        'thinkfulFn();',
+        'function thinkfulFn();'
       ],
       correctAnswer: 3
     },
@@ -68,8 +68,8 @@ const store = {
 function generateStartPage() {
   return `
   <form class="startPage">
-  <img src="images\\light.png"><p class="light">The quiz contains 5 questions and  no time limit. </p></br>
-  <img src="images\\light.png"><p class="light">Let's see how much you know, or don't know, about Javascript, CSS and HTML.</p></br>
+  <img src="images\\light.png" alt="light"><p class="light">The quiz contains 5 questions and  no time limit. </p></br>
+  <img src="images\\light.png" alt="light"><p class="light">Let's see how much you know, or don't know, about Javascript, CSS and HTML.</p></br>
   <p id="start">Good Luck !</p>
   <button type='submit' class='start-button'>Start Quiz</button> 
   
@@ -98,7 +98,7 @@ function generateCurrentQuestion() {
 function generateCorrectPage() {
   return `
   <form class='correct-answer-form'>
-  <h2>Correct Answer!</h2>
+  <h2 id='rightAns'>Correct Answer!</h2>
   <p class="correct">Correct Answer: ${store.questions[store.questionNumber-1].answers[store.questions[store.questionNumber-1].correctAnswer - 1]}</p>
   <button type='button' class='next-question'>Next Question</button>
   <p class="tellscore">Current Score: <span class='current-correct'>${store.score}</span> of ${store.questionNumber}</p>
@@ -121,7 +121,7 @@ function generateQuizComplete() {
   return `
   <form class = "result">
   <label for="check result">Completed the Quiz</label>
-  <p id="start">High Five!<img src="images\\high-five.png"></p>
+  <p id="start">High Five!<img src="images\\high-five.png" alt="hight-five"></p>
   <p class="quesline">You got <span class ="current-correct">${store.score}</span> out of 5!</p>
   <button type="submit" class='restart-button'>Restart</button>
 </form>`;

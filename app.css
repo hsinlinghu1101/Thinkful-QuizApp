@@ -35,6 +35,15 @@ header{
   color:#4f81c7;
 }
 
+.current-question-text{
+  font-family:'Roboto Slab';
+  font-size: 20px;
+}
+
+.current-correct{
+  color:red;
+}
+
  #start{
   color:#e16363;
   font-size: 50px;
